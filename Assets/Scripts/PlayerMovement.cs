@@ -27,8 +27,16 @@ public class PlayerMovement : MonoBehaviour
         wishDir.y = 0;
         wishDir.Normalize();
 
-        velocity.x = Mathf.MoveTowards(velocity.x, wishDir.x * moveSpeed, acceleration * Time.deltaTime);
-        velocity.z = Mathf.MoveTowards(velocity.z, wishDir.z * moveSpeed, acceleration * Time.deltaTime);
+        velocity.x = Mathf.MoveTowards(
+            velocity.x,
+            wishDir.x * moveSpeed,
+            acceleration * Time.deltaTime
+        );
+        velocity.z = Mathf.MoveTowards(
+            velocity.z,
+            wishDir.z * moveSpeed,
+            acceleration * Time.deltaTime
+        );
 
         controller.Move(velocity * Time.deltaTime);
     }

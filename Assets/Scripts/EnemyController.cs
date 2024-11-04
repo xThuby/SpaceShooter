@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -6,11 +7,20 @@ public class EnemyController : MonoBehaviour
 
     private Camera mainCam;
 
+    private NavMeshAgent agent;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
 
         mainCam = Camera.main;
+
+        agent = GetComponent<NavMeshAgent>();
+    }
+
+    public void SetDestination(Vector3 targetPosition)
+    {
+        agent.destination = targetPosition;
     }
 
     private void FixedUpdate()
